@@ -3,6 +3,8 @@ package com.tw.apistackbase.controller;
 import com.tw.apistackbase.entity.Employee;
 import com.tw.apistackbase.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,8 +35,16 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public ResponseEntity addEmployee(@RequestBody Employee employee){
+    public ResponseEntity addEmployee(@RequestBody Employee employee, HttpRequest httpRequest){
+        HttpHeaders headers = httpRequest.getHeaders();
         employeeService.addEmployee(employee);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
+    @PutMapping()
+    public ResponseEntity updateEmployee(@RequestBody Employee employee){
+        employeeService.updateEmployee(employee);
+        return ResponseEntity.ok().build();
+    }
+
 }

@@ -39,4 +39,10 @@ public class EmployeeService {
     public void addEmployee(Employee employee) {
         employeesList.add(employee);
     }
+
+    public void updateEmployee(Employee employee) {
+        int employeeId=employee.getEmployeeId();
+        Employee employee1=getEmployeeByID(employeeId);
+        employee1=employee;
+    }
 }
