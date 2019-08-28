@@ -45,4 +45,9 @@ public class EmployeeService {
         Employee employee1=getEmployeeByID(employeeId);
         employee1=employee;
     }
+
+    public void deleteEmployee(int employeeID) {
+        Employee employee=getEmployeeByID(employeeID);
+        employeesList.remove(employee);
+    }
 }

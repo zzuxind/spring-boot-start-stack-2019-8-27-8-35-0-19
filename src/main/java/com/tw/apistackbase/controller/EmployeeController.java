@@ -46,5 +46,10 @@ public class EmployeeController {
         employeeService.updateEmployee(employee);
         return ResponseEntity.ok().build();
     }
+    @DeleteMapping("{employeeID}")
+    public ResponseEntity deleteEmployee(int employeeID){
+        employeeService.deleteEmployee(employeeID);
+        return ResponseEntity.ok().build();
+    }
 
 }
